@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" type="text/css" href="/CSS/index.css">
+        <link rel="stylesheet" type="text/css" href="/CSS/form.css">
+      </head>
+    <body>
+          <main >
+            <form class="styleEdit" th:action="@{/editar/{id}(id=${artista.id})}" th:object="${artista}" method="post">
+              <h1>Editar Artista</h1>
+              <i class='bx bx-exit salir' id="salir"></i>
+              <div>
+                  <label for="name">Nombre:</label>
+                  <input name="nombre" type="text" class="form-control"  id="nombre" th:field="*{nombre}" placeholder="actualizar nombre">
+                  <label for="mail">Genero:</label>
+                  <input name="genero" type="text" class="form-control" id="genero" th:field="*{genero}" placeholder="actualizar genero">
+                  <label for="bio">Descripción:</label>
+                  <textarea name="descripcion" class="form-control" th:field="*{descripcion}" cols="30" rows="10"></textarea>
+              </div>
+              <button  onclick="return confirm('¿Estás seguro de que deseas Actualizar el registro?')" type="submit">Actualizar</button>
+          </form>            
+          </main>
+          <footer class="footer">
+            <div class="contact">
+                <div class="item__contact">
+                    <i class='bx bx-copyright contact__icon' ></i>
+                    <h3 class="contact__title">copyright 2023</h3>
+                </div>
+                <div class="item__contact">
+                    <i class='bx bx-mail-send contact__icon' ></i>
+                    <h3 class="contact__title">loopstudios@gmail.com</h3>
+                </div>
+                <div class="item__contact">
+                    <i class='bx bxs-edit-location contact__icon' ></i>
+                    <h3 class="contact__title">Popayán-Colombia</h3>
+                </div>
+                <div class="item__contact item__contact--red">
+                    <i class='bx bxs-chat contact__icon ' ></i>
+                    <a href="contacto.html" class="link-footer"><h3 class="contact__title">Contacta ahora</h3></a>
+                </div>
+            </div>
+        </footer>
+        </body>
+    
+    </html>
+    

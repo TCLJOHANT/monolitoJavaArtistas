@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title> CRUD JAVA</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'> <!--boxicons-->
+        <link rel="stylesheet" type="text/css" href="/CSS/index.css">
+        <link rel="stylesheet" type="text/css" href="/CSS/form.css">
+
+    </head>
+    <body >
+          <main id="styleMain">
+                    <div class="cont-form" id="formCrear">
+                        <form th:action="@{/crear-artista}" method="post">
+                            <h1>Crear Artista</h1>
+                            <i class='bx bx-exit salir' id="salir"></i>
+                            <div>
+                                <label for="name">Nombre:</label>
+                                <input type="text"  id="nombre" name="nombre" required class="form-control"  autofocus>
+                                <label for="mail">Genero:</label>
+                                <input type="text"  id="genero" name="genero" required class="form-control"  autofocus>
+                                <label for="bio">Descripción:</label>
+                                <textarea  rows="2" id="descripcion" name="descripcion" required onclick="" class="form-control" ></textarea>
+                            </div>
+                            <button  onclick="return confirm('¿Estás seguro de que deseas GUARDAR el registro?')" type="submit">Guardar</button>
+                        </form>
+                    </div>
+                    <div class="container">
+                        <h2 class="subtitle">Artistas<span class="point">.</span></h2>
+                        <p class="copy__section">Aqui podrás Gestionar los artistas</p>
+                        <a href="#"  class="cta crearBoton" id="crearBoton">Crear Artista</a>
+                         
+                    <table class="tabla-borde">
+                        <thead class="tabla-borde">
+                            <tr class="tabla-borde">
+                                <th>Nombre</th>
+                                <th>Genero</th>
+                                <th >Descripcion</th>
+                                <th>Accion</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tabla-borde">
+                              <tr th:each="artista : ${artistas}" class="tabla-borde">
+                                  <td th:text="${artista.nombre}"></td>
+                                  <td th:text="${artista.genero}"></td>
+                                  <td  th:text="${artista.descripcion}"></td>
+                                  <td>
+                                      <a class="editar" th:href="@{/editar/{id}(id=${artista.id})}" >
+                                        <i class='bx bxs-edit icono editar'></i>
+                                      </a>
+                                      <a class="eliminar" onclick="return confirm('¿Estás seguro de que deseas Eliminar el registro?')" th:href="@{/eliminar/{id}(id=${artista.id})}">
+                                        <i class='bx bxs-trash-alt icono '></i>
+                                      </a>
+                                  </td>
+                              </tr>
+                        </tbody>
+                    </table>
+                </div>
+          </main>
+            <footer class="footer">
+                <div class="contact">
+                    <div class="item__contact">
+                        <i class='bx bx-copyright contact__icon' ></i>
+                        <h3 class="contact__title">copyright 2023</h3>
+                    </div>
+                    <div class="item__contact">
+                        <i class='bx bx-mail-send contact__icon' ></i>
+                        <h3 class="contact__title">loopstudios@gmail.com</h3>
+                    </div>
+                    <div class="item__contact">
+                        <i class='bx bxs-edit-location contact__icon' ></i>
+                        <h3 class="contact__title">Popayán-Colombia</h3>
+                    </div>
+                    <div class="item__contact item__contact--red">
+                        <i class='bx bxs-chat contact__icon ' ></i>
+                        <a href="contacto.html" class="link-footer"><h3 class="contact__title">Contacta ahora</h3></a>
+                    </div>
+                </div>
+            </footer>
+        </body>
+        <script src="/JS/form.js">
+            
+        </script>
+    
+    </html>
+    

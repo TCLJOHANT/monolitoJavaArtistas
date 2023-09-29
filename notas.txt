@@ -1,0 +1,18 @@
+sprint boot=>
+
+ctrl + shift + p
+
+Spring initializr: Create a Marven Project
+3.0.1
+java
+
+demo
+jair
+java 17
+spring web
+thymeleaf
+
+//VER USO DE PUERTO 8080
+netstat -ano | findstr LISTENING | findstr 8080
+//TERMINAR DICHO PROCESO
+taskkill -PID 7140 -F
